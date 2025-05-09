@@ -79,6 +79,7 @@ function handleMouseDown(e) {
     e.preventDefault();
     
     isDragging = true;
+    window.isDragging = true; // Set global dragging state
     draggedElement = e.target;
     
     // Get the initial mouse position
@@ -125,6 +126,7 @@ function handleMouseUp(e) {
     e.preventDefault();
     
     isDragging = false;
+    window.isDragging = false; // Reset global dragging state
     
     // Reset opacity
     draggedElement.style.opacity = '1';

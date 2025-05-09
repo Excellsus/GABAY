@@ -64,10 +64,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Check if we're in edit mode and dragging
                     const editButton = document.getElementById('edit-floorplan-btn');
                     const isEditMode = editButton && editButton.textContent === 'Save';
-                    if (isEditMode) {
-                        return false; // Prevent panning in edit mode
+                    
+                    // Only prevent panning if we're in edit mode AND dragging
+                    if (isEditMode && window.isDragging) {
+                        return false; // Prevent panning while dragging in edit mode
                     }
-                    return newPan;
+                    return newPan; // Allow panning otherwise
                 }
             });
             
