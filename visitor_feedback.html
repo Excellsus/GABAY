@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GABAY Admin Dashboard | Visitor Feedback</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "negros-green": "#1A5632",
+              "negros-light": "#E8F5E9",
+              "negros-dark": "#0D3018",
+              "negros-gold": "#FFD700",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .sidebar-shadow {
+        box-shadow: 4px 0 6px -1px rgba(0, 0, 0, 0.05),
+          2px 0 4px -1px rgba(0, 0, 0, 0.03);
+      }
+      .card-shadow {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      }
+    </style>
+  </head>
+  <body class="bg-negros-light">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <div class="w-64 bg-negros-green text-white sidebar-shadow">
+        <!-- Logo and Title -->
+        <div class="flex items-center p-6 border-b border-negros-dark">
+          <div
+            class="bg-negros-gold rounded-full p-2 mr-3 flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-negros-dark"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1 class="font-bold text-lg">GABAY</h1>
+            <p class="text-xs text-negros-light/80">Admin Portal</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="p-4">
+          <ul class="space-y-1">
+            <li>
+              <a
+                href="#"
+                class="flex items-center p-3 rounded-lg text-negros-light/90 hover:bg-negros-dark/50 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center p-3 rounded-lg text-negros-light/90 hover:bg-negros-dark/50 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+                Office Management
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center p-3 rounded-lg text-negros-light/90 hover:bg-negros-dark/50 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                  />
+                </svg>
+                Floor Plans
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center p-3 rounded-lg bg-negros-dark text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                  />
+                </svg>
+                Visitor Feedback
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center p-3 rounded-lg text-negros-light/90 hover:bg-negros-dark/50 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                System Settings
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- User Profile -->
+        <div
+          class="absolute bottom-0 left-0 right-0 p-4 border-t border-negros-dark"
+        >
+          <div class="flex items-center">
+            <div
+              class="h-10 w-10 rounded-full bg-negros-gold flex items-center justify-center mr-3"
+            >
+              <span class="text-negros-dark font-medium">AD</span>
+            </div>
+            <div>
+              <p class="text-sm font-medium">Admin User</p>
+              <p class="text-xs text-negros-light/60">Super Admin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 p-8 overflow-y-auto">
+        <!-- Top Bar -->
+        <div class="flex justify-between items-center mb-8">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">Visitor Feedback</h2>
+            <p class="text-sm text-gray-500">
+              Manage and respond to visitor feedback submissions
+            </p>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <div class="relative">
+              <input
+                type="text"
+                class="w-64 pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-negros-green/50 focus:border-negros-green"
+                placeholder="Search feedback..."
+              />
+              <div class="absolute left-3 top-2.5 text-gray-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="flex items-center space-x-2">
+              <button
+                class="p-2 rounded-full bg-white shadow-sm hover:bg-gray-50"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                  />
+                </svg>
+              </button>
+              <div
+                class="h-8 w-8 rounded-full bg-negros-green flex items-center justify-center text-white font-medium"
+              >
+                AU
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="mb-6">
+          <div class="flex border-b border-gray-200">
+            <button
+              class="px-6 py-3 border-b-2 border-negros-green text-negros-green font-medium text-sm"
+            >
+              All Feedback
+            </button>
+            <button
+              class="px-6 py-3 text-gray-500 hover:text-negros-green font-medium text-sm"
+            >
+              Pending Response
+            </button>
+            <button
+              class="px-6 py-3 text-gray-500 hover:text-negros-green font-medium text-sm"
+            >
+              Resolved
+            </button>
+            <button
+              class="px-6 py-3 text-gray-500 hover:text-negros-green font-medium text-sm"
+            >
+              Add New
+            </button>
+          </div>
+        </div>
+
+        <!-- Feedback Detail View -->
+        <div class="max-w-3xl mx-auto bg-white rounded-xl p-8 card-shadow">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold text-gray-800">Feedback Details</h3>
+            <div class="w-16 h-1 bg-negros-green mx-auto mt-2"></div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="flex items-center justify-center">
+              <div
+                class="h-12 w-12 rounded-full bg-negros-green flex items-center justify-center text-white font-medium text-lg mr-4"
+              >
+                JD
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-800">
+                  Juan Dela Cruz
+                </h4>
+                <p class="text-sm text-gray-500">juan@example.com</p>
+              </div>
+            </div>
+
+            <div class="bg-negros-light/30 p-6 rounded-lg">
+              <p class="text-gray-700 italic">
+                "The staff at the Provincial Treasurer's Office were very
+                helpful and efficient in processing my payment. The whole
+                transaction took less than 10 minutes, which was much faster
+                than I expected. I appreciate their professionalism and
+                courteous service."
+              </p>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <span class="text-yellow-400 text-2xl">★★★★★</span>
+                <span class="ml-2 text-gray-700 font-medium">5.0</span>
+              </div>
+              <div class="text-sm text-gray-500">
+                Submitted on: <span class="font-medium">April 3, 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-sm text-gray-500 py-4 mt-8">
+          <p>
+            © 2025 GABAY Admin Panel - Provincial Government of Negros
+            Occidental
+          </p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
